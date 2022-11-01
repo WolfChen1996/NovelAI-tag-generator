@@ -1,0 +1,143 @@
+a{color: rgb(30,159,255);font-weight:bold;}
+.r18{display:none}
+.nr18{display:block}
+th{padding:10px 10px 10px 10px}
+td{padding:5px 10px 5px 10px}
+
+
+#elements-container {
+text-align: left;
+width:100%;
+border-width: 1px;
+border-style: solid;
+background-color: rgb(242,242,242);
+border-radius: 2px;
+border-color: #e6e6e6;
+}
+
+.draggable-element {
+user-select: none;
+display: inline-block;
+text-align: center;
+margin: 5px;
+padding:0;
+font-size: 14px;
+height: 30px;
+line-height: 28px;
+border-radius: 2px;
+cursor: grab;
+}
+
+.checked{
+background:rgb(95,184,120)!important;
+color: rgb(255, 255, 255)!important;
+}
+
+.minus{
+display: inline-block;
+border-width: 1px;
+border-style: solid;
+border-radius: 2px;
+border-color: #e6e6e6;
+height: 28px;
+width: 28px;
+background: white;
+color: black;
+cursor: zoom-out;
+}
+.plus{
+display: inline-block;
+border-width: 1px;
+border-style: solid;
+border-radius: 2px;
+border-color: #e6e6e6;
+height: 28px;
+width: 28px;
+background: white;
+color: black;
+cursor: zoom-in;
+}
+.del{
+display: inline-block;
+margin-left:0px;
+border-width: 1px;
+border-style: solid;
+background-color: rgb(255,87,34);
+border-radius: 2px;
+border-color: #e6e6e6;
+height: 28px;
+width: 28px;
+background: rgb(255,87,34);
+color: white;
+cursor: no-drop;
+}
+
+.tagtext{
+background: rgb(95,184,120);
+padding-right:5px;
+padding-left:5px;
+display: inline-block;
+color:white;
+}
+
+.tagtext:hover{
+background: rgb(115,204,140);
+}
+
+
+.tagbutton{
+user-select: none;
+display: inline-block;
+text-align: center;
+margin: 5px;
+padding:0;
+font-size: 14px;
+height: 30px;
+line-height: 28px;
+border-radius: 2px;
+}
+
+.buttext{
+padding-right:5px;
+padding-left:5px;
+display: inline-block;
+background:white;
+color: black;
+border-width: 2px;
+border-style: solid;
+border-radius: 2px;
+border-color: #e6e6e6;
+}
+
+.buttext:hover{
+background: rgb(115,204,140);
+color:white;
+}
+
+#toast{
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 15px;
+    width: 300px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    -moz-box-shadow: 0 0 12px #999;
+    -webkit-box-shadow: 0 0 12px #999;
+    box-shadow: 0 0 12px #999;
+    color: #fff;
+    z-index: 999;
+    display: none;
+}
+
+.toast_success {
+    background:#51a351;
+}
+.toast_warning {
+    background:rgb(255,184,0);
+}
