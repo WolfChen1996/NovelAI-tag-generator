@@ -28,13 +28,14 @@ var _hmt = _hmt || [];
 <body mpa-version="8.0.11" mpa-extension-id="ibefaeehajgcpooopoegkifhgecigeeg" style=""><div style="width:96%;margin-left:2%;margin-top:1vw;">
 <h2 style="float: left;">NovelAI tag生成器 V2.1</h2>
 <button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;" onclick="showhint()">帮助</button>
-<button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;" onclick="showds()">打赏记录</button>
+<button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;" onclick="showds()">打赏作者</button>
 <button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;" onclick="showjd()">开发计划</button>
 <a target="_blank" href="https://wolfchen.top/tag/jump.html?from=scq"><button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;">NovelAI资源大全</button></a>
 <a target="_blank" href="http://jiangnanuniversity.mikecrm.com/bw0ylIm"><button class="layui-btn layui-btn-normal layui-btn-sm" style="margin-left: 5px;">提交意见、建议、tag组合</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
 QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIKl5dxPd7Vfxwt0u2T166sPofgl&amp;jump_from=webapi&amp;authKey=A+Bhd2xNnm8jpL9R9VZLs+RjXq6HAdmrO9AD5jMFOrdYO4PziVl8MPtTuQhW2e+1">830981665</a>(有空位)&nbsp;&nbsp;
 <a target="_blank" href="https://jq.qq.com/?_wv=1027&amp;k=jFbKnnGw">600037848</a>(已满)&nbsp;&nbsp;
 <a target="_blank" href="https://jq.qq.com/?_wv=1027&amp;k=NXpj2oHc">542363433</a>(有空位)
+<a target="_blank" href="https://github.com/WolfChen1996/NovelAI-tag-generator" style="float: right;">github已开源</a>
 <hr>
 
 <form class="layui-form" style="width:100%">
@@ -50,17 +51,17 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </div>
 
 <div class="layui-input-block" style="display: inline-block;margin-left:0;">
-<label class="layui-form-label" style="font-weight:bold;width: auto;">减权</label>
+<label class="layui-form-label" style="font-weight:bold;width: auto;">减权+</label>
 <input type="checkbox" lay-filter="switchminus" lay-skin="switch" lay-text="ON|OFF"><div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
 </div>
 
 <div class="layui-input-block" style="display: inline-block;margin-left:0;">
-<label class="layui-form-label" style="font-weight:bold;width: auto;">加权</label>
+<label class="layui-form-label" style="font-weight:bold;width: auto;">降权-</label>
 <input type="checkbox" lay-filter="switchplus" lay-skin="switch" lay-text="ON|OFF"><div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
 </div>
 
 <div class="layui-input-block" style="display: inline-block;margin-left:0;">
-<label class="layui-form-label" style="font-weight:bold;width: auto;">删除</label>
+<label class="layui-form-label" style="font-weight:bold;width: auto;">删除X</label>
 <input type="checkbox" lay-filter="switchdel" lay-skin="switch" lay-text="ON|OFF"><div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>OFF</em><i></i></div>
 </div>
 
@@ -95,13 +96,17 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 <div align="center" style="width: auto;margin-top: 1vw;margin-left:10px;display: inline-block;vertical-align: middle;">
 <div>
-<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="copytag()">复制</button>
-<button class="layui-btn layui-btn-sm layui-btn-danger" onclick="cleartag()">清空</button>
-
+<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="copytag()">复制 Copy</button>
+<button class="layui-btn layui-btn-sm layui-btn-danger" onclick="cleartag()">清空 Clear</button>
 </div>
+
+<div style="margin-top:10px;">
+<a href="https://aitags.fun/" target="_blank"><button class="layui-btn layui-btn-sm layui-btn" style="width: 100%;">免费在线AI画图</button></a>
+</div>
+
 <div style="margin-top:10px;pointer-events:none;opacity:0;">
-<button class="layui-btn layui-btn-sm layui-btn-warm" onclick="randtag()">随机</button>
-<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="savetag()">保存</button>
+<button class="layui-btn layui-btn-sm layui-btn-warm" onclick="randtag()">随机 Rand</button>
+<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="savetag()">保存 Save</button>
 </div>
 </div>
 </div>
@@ -116,10 +121,10 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 <div align="center" style="width: auto;margin-left:10px;display: inline-block;vertical-align: middle;">
 <div style=" margin-left:0">
-<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="copytag2()">复制</button>
-<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="savetag2()">保存</button>
-<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="backtag2()">默认</button>
-<button class="layui-btn layui-btn-sm layui-btn-danger" onclick="cleartag2()">清空</button>
+<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="copytag2()">复制 Copy</button>
+<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="savetag2()">保存 Save</button>
+<button class="layui-btn layui-btn-sm layui-btn-normal" onclick="backtag2()">默认 Default</button>
+<button class="layui-btn layui-btn-sm layui-btn-danger" onclick="cleartag2()">清空 Clear</button>
 </div>
 </div>
 </div>
@@ -133,6 +138,7 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
     <li>人物&amp;角色</li>
     <li>头发&amp;发饰</li>
     <li>五官&amp;表情</li>
+    <li>眼睛</li>
     <li>身体</li>
     <li>服装</li>
     <li>袜子&amp;腿饰</li>
@@ -149,15 +155,15 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 <form class="layui-form">
 <div class="tagbutton" id="butbesta"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext checked"><span class="english">masterpiece</span><span class="chinese">大师作品</span></div></div>
 <div class="tagbutton" id="butbestb"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext checked"><span class="english">best quality</span><span class="chinese">最好画质</span></div></div>
-<div class="tagbutton" id="butgood0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">masterpiece,best quality,official art,extremely detailed CG unity 8k wallpaper</span><span class="chinese">更高质量</span></div></div></form>
-<hr><p>其他Tag</p>
-<form class="layui-form"><div class="tagbutton" id="but0tagset0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">wedding dress:china dress:0.3</span><span class="chinese">旗袍婚纱
+    <div class="tagbutton" id="butgood0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">masterpiece,best quality,official art,extremely detailed CG unity 8k wallpaper</span><span class="chinese">更高质量</span></div></div></form>
+    <hr><p>其他Tag</p>
+    <form class="layui-form"><div class="tagbutton" id="but0tagset0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">wedding dress:china dress:0.3</span><span class="chinese">旗袍婚纱
 </span></div></div><div class="tagbutton" id="but0tagset1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">arms behind head</span><span class="chinese">双手脑后
 </span></div></div><div class="tagbutton" id="but0tagset2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">arms up, armpits</span><span class="chinese">举手露腋
 </span></div></div><div class="tagbutton" id="but0tagset3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">tiamat (fate)</span><span class="chinese">提亚马特
 </span></div></div><div class="tagbutton" id="but0tagset4"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english"></span><span class="chinese"></span></div></div></form>
-<hr><p>R18Tag</p>
-<form class="layui-form r18"><div class="tagbutton" id="but0tagset180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">surrounded, multiple others, exhibitionism, audience, background characters, crowd, public humiliation</span><span class="chinese">露出
+    <hr><p>R18Tag</p>
+    <form class="layui-form r18"><div class="tagbutton" id="but0tagset180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">surrounded, multiple others, exhibitionism, audience, background characters, crowd, public humiliation</span><span class="chinese">露出
 </span></div></div><div class="tagbutton" id="but0tagset181"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">partially unbuttoned</span><span class="chinese">解开一部分扣子
 </span></div></div><div class="tagbutton" id="but0tagset182"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">show foot</span><span class="chinese">展示足
 </span></div></div><div class="tagbutton" id="but0tagset183"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pubic tattoo on underbelly</span><span class="chinese">淫纹在小腹
@@ -168,16 +174,16 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 <div class="layui-tab-item layui-show">
 <!--div class="tagbutton" id="buttest1"><div class="minus">-</div><div class="buttext"><span class="english">test</span><span class="chinese">测试</span></div><div class="plus">+</div></div-->
-<p>朝朝暮暮</p>
-<form class="layui-form"><div class="tagbutton" id="butenvironment10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">day</span><span class="chinese">白天
+    <p>朝朝暮暮</p>
+    <form class="layui-form"><div class="tagbutton" id="butenvironment10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">day</span><span class="chinese">白天
 </span></div></div><div class="tagbutton" id="butenvironment11"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">dusk</span><span class="chinese">黄昏
 </span></div></div><div class="tagbutton" id="butenvironment12"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">night</span><span class="chinese">夜晚
 </span></div></div><div class="tagbutton" id="butenvironment13"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">in spring</span><span class="chinese">春
 </span></div></div><div class="tagbutton" id="butenvironment14"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">in summer</span><span class="chinese">夏
 </span></div></div><div class="tagbutton" id="butenvironment15"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">in autumn</span><span class="chinese">秋
 </span></div></div><div class="tagbutton" id="butenvironment16"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">in winter</span><span class="chinese">冬</span></div></div></form>
-<hr><p>日月星辰</p>
-<form class="layui-form"><div class="tagbutton" id="butenvironment20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sun</span><span class="chinese">太阳
+    <hr><p>日月星辰</p>
+    <form class="layui-form"><div class="tagbutton" id="butenvironment20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sun</span><span class="chinese">太阳
 </span></div></div><div class="tagbutton" id="butenvironment21"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sunset</span><span class="chinese">落日
 </span></div></div><div class="tagbutton" id="butenvironment22"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">moon</span><span class="chinese">月亮
 </span></div></div><div class="tagbutton" id="butenvironment23"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">full_moon</span><span class="chinese">满月
@@ -186,8 +192,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butenvironment26"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">rain</span><span class="chinese">下雨
 </span></div></div><div class="tagbutton" id="butenvironment27"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">in the rain</span><span class="chinese">雨中
 </span></div></div><div class="tagbutton" id="butenvironment28"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">rainy days</span><span class="chinese">雨天</span></div></div></form>
-<hr><p>天涯海角</p>
-<form class="layui-form"><div class="tagbutton" id="butenvironment30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sky</span><span class="chinese">天空
+    <hr><p>天涯海角</p>
+    <form class="layui-form"><div class="tagbutton" id="butenvironment30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sky</span><span class="chinese">天空
 </span></div></div><div class="tagbutton" id="butenvironment31"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sea</span><span class="chinese">大海
 </span></div></div><div class="tagbutton" id="butenvironment32"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">mountain</span><span class="chinese">山
 </span></div></div><div class="tagbutton" id="butenvironment33"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">on a hill</span><span class="chinese">山上
@@ -219,7 +225,7 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<form class="layui-form"><div class="tagbutton" id="butstyle0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">artbook</span><span class="chinese">原画
+    <form class="layui-form"><div class="tagbutton" id="butstyle0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">artbook</span><span class="chinese">原画
 </span></div></div><div class="tagbutton" id="butstyle1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">game_cg</span><span class="chinese">游戏CG
 </span></div></div><div class="tagbutton" id="butstyle2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">comic</span><span class="chinese">漫画
 </span></div></div><div class="tagbutton" id="butstyle3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">4koma</span><span class="chinese">四格
@@ -282,8 +288,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<p>人物</p>
-<form class="layui-form"><div class="tagbutton" id="butpeople0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">girl</span><span class="chinese">女孩
+    <p>人物</p>
+    <form class="layui-form"><div class="tagbutton" id="butpeople0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">girl</span><span class="chinese">女孩
 </span></div></div><div class="tagbutton" id="butpeople1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">2girls</span><span class="chinese">2女孩
 </span></div></div><div class="tagbutton" id="butpeople2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">3girls</span><span class="chinese">3女孩
 </span></div></div><div class="tagbutton" id="butpeople3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">boy</span><span class="chinese">男孩
@@ -307,8 +313,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butpeople21"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">female pervert</span><span class="chinese">痴女
 </span></div></div><div class="tagbutton" id="butpeople22"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">milf</span><span class="chinese">熟女
 </span></div></div><div class="tagbutton" id="butpeople23"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">harem</span><span class="chinese">后宫</span></div></div></form>
-<hr><p>角色</p>
-<form class="layui-form"><div class="tagbutton" id="butjob0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">angel</span><span class="chinese">天使
+    <hr><p>角色</p>
+    <form class="layui-form"><div class="tagbutton" id="butjob0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">angel</span><span class="chinese">天使
 </span></div></div><div class="tagbutton" id="butjob1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">cheerleader</span><span class="chinese">啦啦队
 </span></div></div><div class="tagbutton" id="butjob2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">chibi</span><span class="chinese">Q版人物
 </span></div></div><div class="tagbutton" id="butjob3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">crossdressing</span><span class="chinese">伪娘
@@ -351,8 +357,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<p>长度</p>
-<form class="layui-form"><div class="tagbutton" id="buthair10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">very short hair</span><span class="chinese">很短
+    <p>长度</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">very short hair</span><span class="chinese">很短
 </span></div></div><div class="tagbutton" id="buthair11"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">short hair</span><span class="chinese">短发
 </span></div></div><div class="tagbutton" id="buthair12"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">medium hair</span><span class="chinese">中发
 </span></div></div><div class="tagbutton" id="buthair13"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">long hair</span><span class="chinese">长发
@@ -360,8 +366,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthair15"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">absurdly long hair</span><span class="chinese">特别长
 </span></div></div><div class="tagbutton" id="buthair16"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair over shoulder</span><span class="chinese">头发过肩
 </span></div></div><div class="tagbutton" id="buthair17"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">alternate hair length</span><span class="chinese">有长有短</span></div></div></form>
-<hr><p>颜色</p>
-<form class="layui-form"><div class="tagbutton" id="buthair20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blonde hair</span><span class="chinese">金色
+    <hr><p>颜色</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blonde hair</span><span class="chinese">金色
 </span></div></div><div class="tagbutton" id="buthair21"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">brown hair</span><span class="chinese">棕色
 </span></div></div><div class="tagbutton" id="buthair22"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black hair</span><span class="chinese">黑色
 </span></div></div><div class="tagbutton" id="buthair23"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blue hair</span><span class="chinese">蓝色
@@ -388,8 +394,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthair224"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair up</span><span class="chinese">头发起来
 </span></div></div><div class="tagbutton" id="buthair225"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair down</span><span class="chinese">头发下垂
 </span></div></div><div class="tagbutton" id="buthair226"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">wet hair</span><span class="chinese">湿头发</span></div></div></form>
-<hr><p>发型</p>
-<form class="layui-form"><div class="tagbutton" id="buthair30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">ahoge</span><span class="chinese">呆毛
+    <hr><p>发型</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">ahoge</span><span class="chinese">呆毛
 </span></div></div><div class="tagbutton" id="buthair31"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">antenna hair</span><span class="chinese">多根呆毛
 </span></div></div><div class="tagbutton" id="buthair32"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bob cut</span><span class="chinese">妹妹切
 </span></div></div><div class="tagbutton" id="buthair33"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hime_cut</span><span class="chinese">公主切
@@ -416,8 +422,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthair324"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair slicked back</span><span class="chinese">头发向后梳
 </span></div></div><div class="tagbutton" id="buthair325"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair pulled back</span><span class="chinese">头发向后拉
 </span></div></div><div class="tagbutton" id="buthair326"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">split-color hair</span><span class="chinese">分色头发</span></div></div></form>
-<hr><p>辫子</p>
-<form class="layui-form"><div class="tagbutton" id="buthair40"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">braid</span><span class="chinese">辫子
+    <hr><p>辫子</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair40"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">braid</span><span class="chinese">辫子
 </span></div></div><div class="tagbutton" id="buthair41"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">twin braids</span><span class="chinese">双辫子
 </span></div></div><div class="tagbutton" id="buthair42"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">single braid</span><span class="chinese">单辫
 </span></div></div><div class="tagbutton" id="buthair43"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">side braid</span><span class="chinese">侧辫子
@@ -432,8 +438,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthair412"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">short_ponytail</span><span class="chinese">短马尾
 </span></div></div><div class="tagbutton" id="buthair413"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">twin_braids</span><span class="chinese">双辫子
 </span></div></div><div class="tagbutton" id="buthair414"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">Side ponytail</span><span class="chinese">侧马</span></div></div></form>
-<hr><p>刘海/其他</p>
-<form class="layui-form"><div class="tagbutton" id="buthair50"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bangs</span><span class="chinese">刘海
+    <hr><p>刘海/其他</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair50"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bangs</span><span class="chinese">刘海
 </span></div></div><div class="tagbutton" id="buthair51"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blunt bangs</span><span class="chinese">齐刘海
 </span></div></div><div class="tagbutton" id="buthair52"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">parted bangs</span><span class="chinese">分刘海
 </span></div></div><div class="tagbutton" id="buthair53"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">swept bangs</span><span class="chinese">侧扫刘海
@@ -451,8 +457,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthair515"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair between breasts</span><span class="chinese">乳房之间的毛发
 </span></div></div><div class="tagbutton" id="buthair516"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair over breasts</span><span class="chinese">乳房上的头发
 </span></div></div><div class="tagbutton" id="buthair517"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair censor</span><span class="chinese">刘海+长发？</span></div></div></form>
-<hr><p>发饰</p>
-<form class="layui-form"><div class="tagbutton" id="buthair60"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair ornament</span><span class="chinese">发饰
+    <hr><p>发饰</p>
+    <form class="layui-form"><div class="tagbutton" id="buthair60"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair ornament</span><span class="chinese">发饰
 </span></div></div><div class="tagbutton" id="buthair61"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair bow</span><span class="chinese">蝴蝶结
 </span></div></div><div class="tagbutton" id="buthair62"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair ribbon</span><span class="chinese">发带
 </span></div></div><div class="tagbutton" id="buthair63"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hairband</span><span class="chinese">发带
@@ -509,7 +515,7 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<form class="layui-form"><div class="tagbutton" id="buthead0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">food on face</span><span class="chinese"> 食物在脸上（食物可替换）
+    <form class="layui-form"><div class="tagbutton" id="buthead0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">food on face</span><span class="chinese"> 食物在脸上（食物可替换）
 </span></div></div><div class="tagbutton" id="buthead1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">light blush</span><span class="chinese">淡淡腮红
 </span></div></div><div class="tagbutton" id="buthead2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">facepaint</span><span class="chinese">面纹
 </span></div></div><div class="tagbutton" id="buthead3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">makeup </span><span class="chinese">浓妆
@@ -548,7 +554,7 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="buthead36"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">mouse_ears</span><span class="chinese">叔耳
 </span></div></div><div class="tagbutton" id="buthead37"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hair ear</span><span class="chinese"> 头发上耳朵
 </span></div></div><div class="tagbutton" id="buthead38"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pointy ears</span><span class="chinese"> 尖耳</span></div></div></form>
-<form class="layui-form"><div class="tagbutton" id="butface0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">light smile</span><span class="chinese">微笑
+    <form class="layui-form"><div class="tagbutton" id="butface0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">light smile</span><span class="chinese">微笑
 </span></div></div><div class="tagbutton" id="butface1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">seductive smile</span><span class="chinese">诱惑笑
 </span></div></div><div class="tagbutton" id="butface2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">grin</span><span class="chinese">露齿而笑
 </span></div></div><div class="tagbutton" id="butface3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">laughing</span><span class="chinese">笑
@@ -596,8 +602,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butface45"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">:q</span><span class="chinese">向上吐舌头
 </span></div></div><div class="tagbutton" id="butface46"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">:t</span><span class="chinese">不耐烦
 </span></div></div><div class="tagbutton" id="butface47"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">:d</span><span class="chinese">杯型笑脸</span></div></div></form>
-<hr><p>R18</p>
-<form class="layui-form r18"><div class="tagbutton" id="butface180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">naughty_face</span><span class="chinese">下流的表情
+    <hr><p>R18</p>
+    <form class="layui-form r18"><div class="tagbutton" id="butface180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">naughty_face</span><span class="chinese">下流的表情
 </span></div></div><div class="tagbutton" id="butface181"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">endured_face</span><span class="chinese">忍耐的表情
 </span></div></div><div class="tagbutton" id="butface182"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">ahegao</span><span class="chinese">阿黑颜
 </span></div></div><div class="tagbutton" id="butface183"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blood on face</span><span class="chinese">血在脸上
@@ -606,11 +612,64 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<p>胸</p>
-<form class="layui-form"><div class="tagbutton" id="butbreast0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">breasts</span><span class="chinese">胸
-</span></div></div><div class="tagbutton" id="butbreast1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">large breasts</span><span class="chinese">大
+    <p>颜色</p>
+    <form class="layui-form"><div class="tagbutton" id="buteye10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blue eyes</span><span class="chinese">蓝色
+</span></div></div><div class="tagbutton" id="buteye11"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">red eyes</span><span class="chinese">红色
+</span></div></div><div class="tagbutton" id="buteye12"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">brown eyes</span><span class="chinese">棕色
+</span></div></div><div class="tagbutton" id="buteye13"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">green eyes</span><span class="chinese">绿色
+</span></div></div><div class="tagbutton" id="buteye14"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">purple eyes</span><span class="chinese">紫色
+</span></div></div><div class="tagbutton" id="buteye15"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">yellow eyes</span><span class="chinese">黄色
+</span></div></div><div class="tagbutton" id="buteye16"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pink eyes</span><span class="chinese">粉红
+</span></div></div><div class="tagbutton" id="buteye17"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black eyes</span><span class="chinese">黑色
+</span></div></div><div class="tagbutton" id="buteye18"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">aqua eyes</span><span class="chinese">水蓝色
+</span></div></div><div class="tagbutton" id="buteye19"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">orange eyes</span><span class="chinese">橙色
+</span></div></div><div class="tagbutton" id="buteye110"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">grey eyes</span><span class="chinese">灰色
+</span></div></div><div class="tagbutton" id="buteye111"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">multicolored eyes</span><span class="chinese">五彩
+</span></div></div><div class="tagbutton" id="buteye112"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">white eyes</span><span class="chinese">白色
+</span></div></div><div class="tagbutton" id="buteye113"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">gradient eyes</span><span class="chinese">渐变</span></div></div></form>
+    <hr><p>状态</p>
+    <form class="layui-form"><div class="tagbutton" id="buteye20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">closed eyes</span><span class="chinese">闭上眼睛
+</span></div></div><div class="tagbutton" id="buteye21"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">half-closed eyes</span><span class="chinese">半闭眼
+</span></div></div><div class="tagbutton" id="buteye22"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">crying with eyes open</span><span class="chinese">睁着眼睛哭
+</span></div></div><div class="tagbutton" id="buteye23"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">narrowed eyes</span><span class="chinese">眯起眼睛
+</span></div></div><div class="tagbutton" id="buteye24"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hidden eyes</span><span class="chinese">隐藏的眼睛
+</span></div></div><div class="tagbutton" id="buteye25"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">heart-shaped eyes</span><span class="chinese">心形眼睛
+</span></div></div><div class="tagbutton" id="buteye26"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">button eyes</span><span class="chinese">纽扣眼
+</span></div></div><div class="tagbutton" id="buteye27"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">cephalopod eyes</span><span class="chinese">头足类眼睛
+</span></div></div><div class="tagbutton" id="buteye28"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">eyes visible through hair</span><span class="chinese">透过头发看见眼睛
+</span></div></div><div class="tagbutton" id="buteye29"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">glowing eyes</span><span class="chinese">发光的眼睛
+</span></div></div><div class="tagbutton" id="buteye210"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">empty eyes</span><span class="chinese">空洞的眼睛
+</span></div></div><div class="tagbutton" id="buteye211"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">rolling eyes</span><span class="chinese">翻白眼
+</span></div></div><div class="tagbutton" id="buteye212"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blank eyes</span><span class="chinese">空白的眼睛
+</span></div></div><div class="tagbutton" id="buteye213"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">no eyes</span><span class="chinese">没有眼睛
+</span></div></div><div class="tagbutton" id="buteye214"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sparkling eyes</span><span class="chinese">闪闪发光的眼睛
+</span></div></div><div class="tagbutton" id="buteye215"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">extra eyes</span><span class="chinese">额外的眼睛
+</span></div></div><div class="tagbutton" id="buteye216"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">crazy eyes</span><span class="chinese">疯狂的眼睛
+</span></div></div><div class="tagbutton" id="buteye217"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">solid circle eyes</span><span class="chinese">实心圆眼
+</span></div></div><div class="tagbutton" id="buteye218"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">solid oval eyes</span><span class="chinese">实心椭圆形眼睛
+</span></div></div><div class="tagbutton" id="buteye219"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">uneven eyes</span><span class="chinese">不均匀的眼睛
+</span></div></div><div class="tagbutton" id="buteye220"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blood from eyes</span><span class="chinese">眼睛里的血</span></div></div></form>
+    <hr><p>其他</p>
+    <form class="layui-form"><div class="tagbutton" id="buteye30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">eyeshadow</span><span class="chinese">眼影
+</span></div></div><div class="tagbutton" id="buteye31"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">red eyeshadow</span><span class="chinese">红色眼影
+</span></div></div><div class="tagbutton" id="buteye32"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">blue eyeshadow</span><span class="chinese">蓝色眼影
+</span></div></div><div class="tagbutton" id="buteye33"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">purple eyeshadow</span><span class="chinese">紫色眼影
+</span></div></div><div class="tagbutton" id="buteye34"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pink eyeshadow</span><span class="chinese">粉色眼影
+</span></div></div><div class="tagbutton" id="buteye35"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">green eyeshadow</span><span class="chinese">绿色眼影
+</span></div></div><div class="tagbutton" id="buteye36"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bags under eyes</span><span class="chinese">眼袋
+</span></div></div><div class="tagbutton" id="buteye37"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">ringed eyes</span><span class="chinese">眼圈
+</span></div></div><div class="tagbutton" id="buteye38"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">covered eyes</span><span class="chinese">蒙住眼睛
+</span></div></div><div class="tagbutton" id="buteye39"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">covering eyes</span><span class="chinese">遮住眼睛
+</span></div></div><div class="tagbutton" id="buteye310"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">shading eyes</span><span class="chinese">遮住眼睛</span></div></div></form>
+<br><br><br><br><br></div>
+
+
+<div class="layui-tab-item">
+    <p>胸</p>
+    <form class="layui-form"><div class="tagbutton" id="butbreast0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">breasts</span><span class="chinese">胸
+</span></div></div><div class="tagbutton" id="butbreast1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">small breasts</span><span class="chinese">小
 </span></div></div><div class="tagbutton" id="butbreast2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">medium breasts</span><span class="chinese">中
-</span></div></div><div class="tagbutton" id="butbreast3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">small breasts</span><span class="chinese">小
+</span></div></div><div class="tagbutton" id="butbreast3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">large breasts</span><span class="chinese">大
 </span></div></div><div class="tagbutton" id="butbreast4"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">huge breasts</span><span class="chinese">超大
 </span></div></div><div class="tagbutton" id="butbreast5"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">alternate breast size</span><span class="chinese">不同尺寸
 </span></div></div><div class="tagbutton" id="butbreast6"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">mole on breast</span><span class="chinese">乳房上有痣
@@ -618,14 +677,15 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butbreast8"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">breasts apart</span><span class="chinese">胸部分开
 </span></div></div><div class="tagbutton" id="butbreast9"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hanging breasts</span><span class="chinese">晃来晃去
 </span></div></div><div class="tagbutton" id="butbreast10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bouncing breasts</span><span class="chinese">弹来弹去</span></div></div></form>
-<hr><p>R18</p>
-<form class="layui-form r18"><div class="tagbutton" id="butbreast180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">breasts out</span><span class="chinese">露出胸部
+    <hr><p>R18</p>
+    <form class="layui-form r18"><div class="tagbutton" id="butbreast180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">breasts out</span><span class="chinese">露出胸部
 </span></div></div><div class="tagbutton" id="butbreast181"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">one breast out</span><span class="chinese">露出一边</span></div></div></form>
 <br><br><br><br><br></div>
 
 
 <div class="layui-tab-item">
-<form class="layui-form"><div class="tagbutton" id="butcloth0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sailor collar</span><span class="chinese">领子
+    <p>衣服</p>
+    <form class="layui-form"><div class="tagbutton" id="butcloth0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">sailor collar</span><span class="chinese">领子
 </span></div></div><div class="tagbutton" id="butcloth1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">hat</span><span class="chinese">帽子
 </span></div></div><div class="tagbutton" id="butcloth2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">shirt</span><span class="chinese">衬衫
 </span></div></div><div class="tagbutton" id="butcloth3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">serafuku</span><span class="chinese">水手服
@@ -707,8 +767,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butcloth79"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">one-piece swimsuit</span><span class="chinese">连体泳衣
 </span></div></div><div class="tagbutton" id="butcloth80"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">competition swimsuit</span><span class="chinese">竞技泳衣
 </span></div></div><div class="tagbutton" id="butcloth81"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">Sukumizu</span><span class="chinese">死库水</span></div></div></form>
-<form class="layui-form r18">
-    <div class="tagbutton" id="butcloth180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">no bra</span><span class="chinese">没胸罩
+    <hr><p>R18</p>
+    <form class="layui-form r18"><div class="tagbutton" id="butcloth180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">no bra</span><span class="chinese">没胸罩
 </span></div></div><div class="tagbutton" id="butcloth181"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bra </span><span class="chinese">胸罩
 </span></div></div><div class="tagbutton" id="butcloth182"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">victorian</span><span class="chinese">褶边文胸
 </span></div></div><div class="tagbutton" id="butcloth183"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">frilled bra </span><span class="chinese">褶边文胸
@@ -731,8 +791,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 
 
 <div class="layui-tab-item">
-<p>袜子</p>
-<form class="layui-form"><div class="tagbutton" id="butsock10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bare legs</span><span class="chinese">裸腿
+    <p>袜子</p>
+    <form class="layui-form"><div class="tagbutton" id="butsock10"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bare legs</span><span class="chinese">裸腿
 </span></div></div><div class="tagbutton" id="butsock11"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">garter straps</span><span class="chinese">吊袜带
 </span></div></div><div class="tagbutton" id="butsock12"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">garter belt</span><span class="chinese">吊袜带
 </span></div></div><div class="tagbutton" id="butsock13"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">socks</span><span class="chinese">袜子
@@ -753,8 +813,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butsock118"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">grey socks</span><span class="chinese">灰袜子
 </span></div></div><div class="tagbutton" id="butsock119"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">red socks</span><span class="chinese">红袜子
 </span></div></div><div class="tagbutton" id="butsock120"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">frilled socks</span><span class="chinese">荷叶边袜子</span></div></div></form>
-<hr><p>长筒袜</p>
-<form class="layui-form"><div class="tagbutton" id="butsock20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">thighhighs</span><span class="chinese">长筒袜
+    <hr><p>长筒袜</p>
+    <form class="layui-form"><div class="tagbutton" id="butsock20"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">thighhighs</span><span class="chinese">长筒袜
 </span></div></div><div class="tagbutton" id="butsock21"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black thighhighs</span><span class="chinese">黑色长筒袜
 </span></div></div><div class="tagbutton" id="butsock22"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">white thighhighs</span><span class="chinese">白色长筒袜
 </span></div></div><div class="tagbutton" id="butsock23"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">striped thighhighs</span><span class="chinese">条纹长筒袜
@@ -771,8 +831,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butsock214"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">vertical-striped thighhighs</span><span class="chinese">竖条纹长筒袜
 </span></div></div><div class="tagbutton" id="butsock215"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">frilled thighhighs</span><span class="chinese">褶边长筒袜
 </span></div></div><div class="tagbutton" id="butsock216"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">fishnet thighhighs</span><span class="chinese">渔网长筒袜</span></div></div></form>
-<hr><p>连裤袜</p>
-<form class="layui-form"><div class="tagbutton" id="butsock30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pantyhose</span><span class="chinese">连裤袜
+    <hr><p>连裤袜</p>
+    <form class="layui-form"><div class="tagbutton" id="butsock30"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">pantyhose</span><span class="chinese">连裤袜
 </span></div></div><div class="tagbutton" id="butsock31"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black pantyhose</span><span class="chinese">黑色连裤袜
 </span></div></div><div class="tagbutton" id="butsock32"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">white pantyhose</span><span class="chinese">白色连裤袜
 </span></div></div><div class="tagbutton" id="butsock33"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">thighband pantyhose</span><span class="chinese">绑腿连裤袜
@@ -786,8 +846,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butsock311"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">purple pantyhose</span><span class="chinese">紫色连裤袜
 </span></div></div><div class="tagbutton" id="butsock312"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">red pantyhose</span><span class="chinese">红色连裤袜
 </span></div></div><div class="tagbutton" id="butsock313"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">fishnet legwear</span><span class="chinese">渔网袜</span></div></div></form>
-<hr><p>腿饰&amp;组合</p>
-<form class="layui-form"><div class="tagbutton" id="butsock40"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bandaged leg</span><span class="chinese">包扎腿
+    <hr><p>腿饰&amp;组合</p>
+    <form class="layui-form"><div class="tagbutton" id="butsock40"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bandaged leg</span><span class="chinese">包扎腿
 </span></div></div><div class="tagbutton" id="butsock41"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">bandaid on leg</span><span class="chinese">腿上的绷带
 </span></div></div><div class="tagbutton" id="butsock42"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">mechanical legs</span><span class="chinese">机械腿
 </span></div></div><div class="tagbutton" id="butsock43"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">leg belt</span><span class="chinese">腿带
@@ -805,8 +865,8 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butsock415"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">white garter straps</span><span class="chinese">白色吊袜带
 </span></div></div><div class="tagbutton" id="butsock416"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black garter straps</span><span class="chinese">黑色吊袜带
 </span></div></div><div class="tagbutton" id="butsock417"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">ankle garter</span><span class="chinese">脚踝吊袜带</span></div></div></form>
-<hr><p>裤袜</p>
-<form class="layui-form"><div class="tagbutton" id="butsock50"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">no legwear</span><span class="chinese">裸腿
+    <hr><p>裤袜</p>
+    <form class="layui-form"><div class="tagbutton" id="butsock50"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">no legwear</span><span class="chinese">裸腿
 </span></div></div><div class="tagbutton" id="butsock51"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">black legwear</span><span class="chinese">黑色裤袜
 </span></div></div><div class="tagbutton" id="butsock52"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">white legwear</span><span class="chinese">白色裤袜
 </span></div></div><div class="tagbutton" id="butsock53"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">torn legwear</span><span class="chinese">撕裂的裤袜
@@ -841,15 +901,15 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 </span></div></div><div class="tagbutton" id="butsock532"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">legwear garter</span><span class="chinese">裤袜吊袜带
 </span></div></div><div class="tagbutton" id="butsock533"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">two-tone legwear</span><span class="chinese">双色裤袜
 </span></div></div><div class="tagbutton" id="butsock534"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">latex legwear</span><span class="chinese">乳胶裤袜</span></div></div></form>
-<hr><p>R18</p>
-<form class="layui-form r18"><div class="tagbutton" id="butsock180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">vibrator in thighhighs</span><span class="chinese">长筒袜里塞跳蛋
+    <hr><p>R18</p>
+    <form class="layui-form r18"><div class="tagbutton" id="butsock180"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">vibrator in thighhighs</span><span class="chinese">长筒袜里塞跳蛋
 </span></div></div><div class="tagbutton" id="butsock181"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">torn pantyhose</span><span class="chinese">撕裂的连裤袜</span></div></div></form>
 <br><br><br><br><br></div>
 
 
 <div class="layui-tab-item">
-<p>鞋子</p>
-<form class="layui-form"><div class="tagbutton" id="butshoe0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">shoes </span><span class="chinese">鞋子
+    <p>鞋子</p>
+    <form class="layui-form"><div class="tagbutton" id="butshoe0"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">shoes </span><span class="chinese">鞋子
 </span></div></div><div class="tagbutton" id="butshoe1"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">boots</span><span class="chinese">靴子
 </span></div></div><div class="tagbutton" id="butshoe2"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">loafers</span><span class="chinese">乐福鞋
 </span></div></div><div class="tagbutton" id="butshoe3"><div class="minus" style="display: none;">-</div><div class="plus" style="display: none;">+</div><div class="buttext"><span class="english">high heels</span><span class="chinese">高跟鞋
@@ -1423,8 +1483,9 @@ QQ交流群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=9mVueIK
 <div class="layui-text" style="color:white">    
 <ul>
 
-<li>正在整理【鞋子&amp;背景&amp;环境】相关tag，立下Flag，今天整理完鞋子！</li>
-<li>2022.11.01：更新至V2.1，把加权按钮挪到左边了，这样加权的时候就不会因为标签变长而苦恼；更改了配色，没有之前那么压抑了。修改了分类，添加了胸部相关的tag。</li>
+<li>正在整理【鞋子&amp;背景&amp;环境】相关tag</li>
+<li>2022.11.02：补充了眼睛、胸相关tag
+</li><li>2022.11.01：更新至V2.1，把加权按钮挪到左边了，这样加权的时候就不会因为标签变长而苦恼；更改了配色，没有之前那么压抑了。修改了分类，添加了胸部相关的tag。</li>
 <li>2022.10.30：2.0版本上线！交互方式全部重写，可拖拽排序、编辑权重、快速删除。</li>
 <li>2022.10.24：补充了30个发型、头饰相关tag，9个头发相关动作
 </li><li>2022.10.23：【袜子&amp;腿饰相关tag整理完毕】的800多个tag，留下了107个常用的袜子和腿饰tag
@@ -1615,7 +1676,6 @@ if(str.substr(0, 1)=="["){
 generate();
 });
 
-
 $(document).on('click', ".del", function () {
 var divid=$(this).parent().attr('id');
 $('#'+divid).remove();
@@ -1774,4 +1834,4 @@ $(function() {
 <script src="./index_files/index.js" charset="utf-8"></script>
 <script type="text/javascript" src="./index_files/drag-arrange.js"></script>
 
-</body></html>
+<div class="mpa-sc mpa-plugin-article-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-article-gatherer"></div><div class="mpa-sc mpa-plugin-image-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-image-gatherer"></div><div class="mpa-sc mpa-plugin-page-clipper mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-page-clipper"></div><div class="mpa-sc mpa-plugin-text-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-text-gatherer"></div><div class="mpa-sc mpa-plugin-video-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-video-gatherer"></div><div class="mpa-sc mpa-plugin-side-function-panel mpa-new mpa-rootsc" data-z="110" style="display: block;" id="mpa-rootsc-side-function-panel"></div><div class="mpa-sc mpa-plugin-notifier mpa-new mpa-rootsc" data-z="120" style="display: block;" id="mpa-rootsc-notifier"></div><div class="mpa-sc mpa-plugin-notification-manager mpa-new mpa-rootsc" data-z="130" style="display: block;" id="mpa-rootsc-notification-manager"></div></body></html>
