@@ -1,5 +1,7 @@
 # NovelAI-tag-generator
 
+如果可以，使用的时候可以加个友链，或者注明一下出处，又写代码又整理tag挺辛苦的（^-^）
+
 生成器网址：https://wolfchen.top/tag/
 
 其实没啥好放的，纯前端页面，ctrl+s就能保存下来。
@@ -15,3 +17,11 @@
 NovelAI在线免费生成：https://aitags.fun/
 
 祝大家身体健康，生活愉快~
+
+## 欢迎关注公众号
+
+![image](https://github.com/WolfChen1996/NovelAI-tag-generator/blob/main/index_files/wechat.jpg)
+
+## 禁止修改成收费项目！！！
+
+请为人类的涩涩事业做出你的贡献，别tmd付费解锁，关注公众号解锁，xxx解锁。
