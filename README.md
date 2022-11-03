@@ -4,6 +4,8 @@
 
 生成器网址：https://wolfchen.top/tag/
 
+[![xq1qzQ.jpg](https://s1.ax1x.com/2022/11/03/xq1qzQ.jpg)](https://imgse.com/i/xq1qzQ)
+
 其实没啥好放的，纯前端页面，ctrl+s就能保存下来。
 
 下方选择tag后，可在上方拖拽排序，tag的顺序对生成结果有影响，越靠前越优先。
@@ -18,9 +20,9 @@ NovelAI在线免费生成：https://aitags.fun/
 
 祝大家身体健康，生活愉快~
 
-## 欢迎关注公众号
+## 欢迎关注公众号 JNUWolf
 
-![image](https://github.com/WolfChen1996/NovelAI-tag-generator/blob/main/index_files/wechat.jpg)
+[![JNUWolf](https://s1.ax1x.com/2022/11/03/xq17i8.jpg)](https://imgse.com/i/xq17i8)
 
 ## 禁止修改成收费项目！！！
 
