@@ -1834,4 +1834,50 @@ $(function() {
 <script src="./index_files/index.js" charset="utf-8"></script>
 <script type="text/javascript" src="./index_files/drag-arrange.js"></script>
 
+<script>
+    function getStructuredData () {
+        var doc = document
+        var titleItems = doc.querySelectorAll('.layui-tab-title li')
+        var titles = [...titleItems].map(item => {
+            return {
+                title: item.textContent,
+                children: []
+            }
+        })
+
+        var content = doc.querySelector('.layui-tab-content')
+        var tabItems = content.querySelectorAll('.layui-tab-item')
+
+        for (let i = 0; i < tabItems.length; i++) {
+            var tabItem = tabItems[i]
+            var formItems = tabItem.querySelectorAll('.layui-form')
+
+            var pText = [...tabItem.querySelectorAll('p')].map(item => item.textContent)
+
+            if (formItems.length > pText.length) {
+                pText.unshift(null)
+            }
+
+            for (let j = 0; j < formItems.length; j++) {
+                var formItem = formItems[j]
+                var tagbuttons = formItem.querySelectorAll('.tagbutton')
+                var tags = [...tagbuttons].map(tagbutton => {
+                    return {
+                        english: tagbutton.querySelector('.english').textContent,
+                        chinese: tagbutton.querySelector('.chinese').textContent.replace('\n', '')
+                    }
+                })
+
+                titles[i].children.push({
+                    title: pText[j],
+                    tags: tags
+                })
+            }
+        }
+
+        return titles
+    }
+
+</script>
+
 <div class="mpa-sc mpa-plugin-article-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-article-gatherer"></div><div class="mpa-sc mpa-plugin-image-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-image-gatherer"></div><div class="mpa-sc mpa-plugin-page-clipper mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-page-clipper"></div><div class="mpa-sc mpa-plugin-text-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-text-gatherer"></div><div class="mpa-sc mpa-plugin-video-gatherer mpa-new mpa-rootsc" data-z="100" style="display: block;" id="mpa-rootsc-video-gatherer"></div><div class="mpa-sc mpa-plugin-side-function-panel mpa-new mpa-rootsc" data-z="110" style="display: block;" id="mpa-rootsc-side-function-panel"></div><div class="mpa-sc mpa-plugin-notifier mpa-new mpa-rootsc" data-z="120" style="display: block;" id="mpa-rootsc-notifier"></div><div class="mpa-sc mpa-plugin-notification-manager mpa-new mpa-rootsc" data-z="130" style="display: block;" id="mpa-rootsc-notification-manager"></div></body></html>
